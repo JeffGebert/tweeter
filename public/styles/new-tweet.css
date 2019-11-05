@@ -1,0 +1,51 @@
+section {
+  margin-top: 30px;
+  display:flex;
+  justify-content: center;
+  background-color: #f4f1ec;
+  width:100%;
+}
+
+form {
+  display:flex;
+  flex-direction: column;
+  
+}
+
+textarea {
+  display:block;
+  width: 800px;
+  height: 45px;
+  background-color: #f4f1ec;
+  border: none;
+  border-bottom: 2px solid black;
+  resize: none;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+
+  
+}
+
+
+form > div {
+  display:flex;
+  justify-content: space-between;
+}
+
+input {
+  background-color: #4056A1;
+  font-family: "Bungee", sans-serif;
+  color: white;
+
+}
+
+form > div > span {
+  position: relative;
+  font-family: "Bungee", sans-serif;
+
+}
+
+.redCounter {
+  color: red;
+}

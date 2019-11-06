@@ -63,6 +63,35 @@ let $tweet = `
 return $tweet;
 }
 
+const $form = $('#postTweet');
+console.log("$form", $form.innerHTML);
+$form.on("submit", function(event) {
+  event.preventDefault();
+  console.log( $( this ).serialize() );
+
+});
+
+
 $(document).ready(function() {
   renderTweets(data)
+
+  const $form = $('#postTweet');
+  $form.on("submit", function(event) {
+    event.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url:'http://localhost:8080/Tweets',
+      data:$(this).serialize()
+    })
+    .done(console.log("success"))
+    .fail(console.log("failure"))
+
 });
+
+
+
+
+
+
+});
+

@@ -4,31 +4,10 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 // Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+
 
 const renderTweets = function(tweets) {
+  $(".tweets").empty();
   tweets.forEach(element => {
     $(".tweets").append(createTweetElement(element));
   });
@@ -63,17 +42,9 @@ let $tweet = `
 return $tweet;
 }
 
-const $form = $('#postTweet');
-console.log("$form", $form.innerHTML);
-$form.on("submit", function(event) {
-  event.preventDefault();
-  console.log( $( this ).serialize() );
-
-});
-
 
 $(document).ready(function() {
-  renderTweets(data)
+
 
   const $form = $('#postTweet');
   $form.on("submit", function(event) {
@@ -83,15 +54,20 @@ $(document).ready(function() {
       url:'http://localhost:8080/Tweets',
       data:$(this).serialize()
     })
-    .done(console.log("success"))
-    .fail(console.log("failure"))
-
-});
+    .done(loadTweets)
+   
 
 
+  });
 
-
-
+  let loadTweets = function () {
+    $.ajax({
+      type: 'GET',
+      url: `http://localhost:8080/tweets/`
+    })
+    .done(renderTweets)
+  }
+  loadTweets();
 
 });
 

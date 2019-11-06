@@ -22,6 +22,7 @@ header h2 {
 }
 
 article header.headerTweets {
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   background-image: none;
@@ -37,6 +38,11 @@ article header img {
   left: inherit;
   height: 50px;
   width: 50px;
+}
+
+section container {
+  margin-top: 30px; 
+
 }
 
 container:hover {

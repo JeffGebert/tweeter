@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log("ready bitches");
   $('textarea').on('keyup', function() {
     let tweetLength = 140 - $(this).val().length;
 

@@ -4,6 +4,13 @@ section {
   justify-content: center;
   background-color: #f4f1ec;
   width:100%;
+  
+}
+
+.tweets {
+  margin-top: 30px;
+  justify-content: center;
+  flex-direction: column;
 }
 
 form {

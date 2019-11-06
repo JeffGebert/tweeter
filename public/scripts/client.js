@@ -42,21 +42,29 @@ let $tweet = `
 return $tweet;
 }
 
-
 $(document).ready(function() {
 
 
   const $form = $('#postTweet');
   $form.on("submit", function(event) {
     event.preventDefault();
+    if ($(this).serialize().length > 140) {
+      alert("You have entered too many characters")
+    } else if ($(this).serialize().length === 0) {
+      alert("You must enter something!")
+    } else {
     $.ajax({
       type: 'POST',
       url:'http://localhost:8080/Tweets',
       data:$(this).serialize()
     })
-    .done(loadTweets)
-   
 
+    .done(loadTweets)
+    $form.find("textarea").val("");
+    $form.find(".counter").html(140);
+
+   }
+   
 
   });
 

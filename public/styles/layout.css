@@ -31,7 +31,17 @@ main {
 
   margin:auto;
   width: 90%;
-  background-color: f4f1ec;
+  background-color: #f4f1ec;
+}
+
+container {
+  
+  display:flex;
+  width: 825px;
+  height: 200px;
+  background-color:#f4f1ec;
+  border: 2px solid  #545149;
+
 }
 
 /*

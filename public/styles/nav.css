@@ -26,17 +26,23 @@ body nav div span {
   margin-bottom:7px;
 }
 
-.fas fa-angle-double-down {
-  animation: pulse 5s infinite;
-  animation: bounce 2s infinite;
+.fas.fa-angle-double-down {
+  animation: pulse 5s infinite, bounce 2s infinite;
+
 }
+
+.fas.fa-angle-double-down:hover {
+  cursor:pointer;
+  
+}
+
 
 @keyframes pulse {
   0% {
-    background-color: #001F3F;
+    color: #001F3F;
   }
   100% {
-    background-color: #FF4136;
+    color: #FF4136;
   }
 }
 
@@ -45,9 +51,9 @@ body nav div span {
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-30px);
+    transform: translateY(10px);
   }
   60% {
-    transform: translateY(-15px);
+    transform: translateY(7.5px);
   }
 }

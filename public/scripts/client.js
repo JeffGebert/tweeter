@@ -53,18 +53,22 @@ const escape =  function(str) {
 
 
 
-
 $(document).ready(function() {
-
+  $('.limit').hide()
+  $('.empty').hide()
+ 
 
   const $form = $('#postTweet');
   $form.on("submit", function(event) {
+   
     event.preventDefault();
     if ($(this).serialize().length > 140) {
-      alert("You have entered too many characters")
-    } else if ($(this).serialize().length === 0) {
-      alert("You must enter something!")
+      $('.limit').show()
+    } else if ($('textarea').val() === "") {
+      $('.empty').show()
     } else {
+      $('.limit').hide()
+      $('.empty').hide()
     $.ajax({
       type: 'POST',
       url:'http://localhost:8080/Tweets',
@@ -88,6 +92,13 @@ $(document).ready(function() {
     .done(renderTweets)
   }
   loadTweets();
+  const $tweets = $('.new-tweet')
+  const $textarea = $('textarea')
+  const $img = $('.fas.fa-angle-double-down');
+  $img.on("click", function(event) {
+    event.preventDefault();
+    $tweets.slideToggle(600, function(){$textarea.focus()})
 
+  });
 });
 

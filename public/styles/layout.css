@@ -28,19 +28,18 @@ nav {
 }
 
 main {
-
   margin:auto;
   width: 90%;
   background-color: #f4f1ec;
 }
 
 container {
-  
+  margin-top:500px;
   display:flex;
   width: 825px;
   height: 200px;
   background-color:#f4f1ec;
-  border: 2px solid  #545149;
+  border: 4px solid  #545149;
 
 }
 

@@ -51,6 +51,22 @@ form > div > span {
 
 }
 
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 31px;
+}
+
 .redCounter {
   color: red;
+}
+
+
+footer div {
+  margin-top: 10px;
+  margin-right: 10px;
+  display: flex;
+  height:10px;
+  font-size: 2;
 }

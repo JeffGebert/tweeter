@@ -9,7 +9,7 @@
 const renderTweets = function(tweets) {
   $(".tweets").empty();
   tweets.forEach(element => {
-    $(".tweets").append(createTweetElement(element));
+    $(".tweets").prepend(createTweetElement(element));
   });
 // loops through tweets
 // calls createTweetElement for each tweet
@@ -31,7 +31,7 @@ let $tweet = `
 </header>
 <span class = "spantweet">${escape(tweet.content.text)}</span>
 <footer>
-    <p>${tweet.timeCreated}</p>
+    <p>${moment(tweet.timeCreated).fromNow()}</p>
     <div class = "bottomImages">
     <i class="fas fa-flag fa-xs" style="color:#4056A1;"></i>
     <i class="fas fa-retweet fa-xs" style="color:#4056A1;"></i>

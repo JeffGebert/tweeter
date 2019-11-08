@@ -1,4 +1,3 @@
-
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
@@ -20,7 +19,6 @@ const renderTweets = function(tweets) {
 }
 
 const createTweetElement = function(tweet) {
-
 let $tweet = `
 <container>
 <article>
@@ -33,7 +31,7 @@ let $tweet = `
 </header>
 <span class = "spantweet">${escape(tweet.content.text)}</span>
 <footer>
-    <p>${tweet.created_at}</p>
+    <p>${tweet.timeCreated}</p>
     <div class = "bottomImages">
     <i class="fas fa-flag fa-xs" style="color:#4056A1;"></i>
     <i class="fas fa-retweet fa-xs" style="color:#4056A1;"></i>

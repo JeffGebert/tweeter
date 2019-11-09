@@ -1,7 +1,5 @@
 header {
-  position: sticky;
   height: 400px;
-  width: 100vw;
   background-color: lightpink;
   background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
   bottom:0;
@@ -9,7 +7,6 @@ header {
 
 header img {
   position: relative;
-  left: 40%;
 }
 
 header h2 {
@@ -24,7 +21,6 @@ article header.headerTweets {
   justify-content: space-between;
   margin:auto;
   height: 100px;
-  width: 800px;
   background-color: #f4f1ec;
 }
 
@@ -58,8 +54,11 @@ container:hover article header span{
 }
 
 .spantweet {
-  display: inline-block;
-  margin-left:20px;
+  max-width: 800px;
+  width: auto;
+  display: flex;
+  margin-right: 10px;
+  margin-left:10px;
   border-bottom: 4px solid #545149;
-  width: 775px;
+
 }

@@ -21,7 +21,7 @@ const renderTweets = function(tweets) {
 const createTweetElement = function(tweet) {
 let $tweet = `
 <container>
-<article>
+<article class = "tweetArticle">
 <header class = "headerTweets">
   <div>
   <img src=${tweet.user.avatars} alt="">

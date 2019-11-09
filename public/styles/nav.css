@@ -3,7 +3,8 @@ body nav {
   position: sticky;
   display:flex;
   justify-content: space-between;
-  background-color: #4056A1;
+  background-color: lightpink;
+  background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
   color: #FFFFFF;
   z-index: 10;
   height: 100px;

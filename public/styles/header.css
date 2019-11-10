@@ -20,7 +20,7 @@ article header.headerTweets {
   background-image: none;
   justify-content: space-between;
   margin:auto;
-  height: 100px;
+  height: 75px;
   background-color: #f4f1ec;
 }
 
@@ -41,19 +41,18 @@ container:hover {
 }
 
 container:hover article header span{
-  display: inline-block;
+  display: flex;
 }
 
 .handle {
   display: none;
-}
-
-
-.name {
-  align-self: flex-start;
+  align-items: center;
+  margin-right: 15px;
 }
 
 .spantweet {
+  min-height: 65px;
+  margin-top:10px;
   max-width: 800px;
   width: auto;
   display: flex;

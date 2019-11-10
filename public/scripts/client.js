@@ -23,7 +23,7 @@ let $tweet = `
 <container>
 <article class = "tweetArticle">
 <header class = "headerTweets">
-  <div>
+  <div class = "userImage">
   <img src=${tweet.user.avatars} alt="">
   <span class = "name">${tweet.user.name}</span>
  </div>
@@ -31,7 +31,7 @@ let $tweet = `
 </header>
 <span class = "spantweet">${escape(tweet.content.text)}</span>
 <footer>
-    <p>${moment(tweet.timeCreated).fromNow()}</p>
+    <p class = "timeCreated">${moment(tweet.timeCreated).fromNow()}</p>
     <div class = "bottomImages">
     <i class="fas fa-flag fa-xs" style="color:#4056A1;"></i>
     <i class="fas fa-retweet fa-xs" style="color:#4056A1;"></i>
@@ -60,7 +60,8 @@ $(document).ready(function() {
   $form.on("submit", function(event) {
    
     event.preventDefault();
-    if ($(this).serialize().length > 140) {
+    //we subtract five here because with no string $(this).serialize will return length of 5 with a value of "".
+    if (($(this).serialize().length - 5) > 140) {
       $('.limit').show()
     } else if ($('textarea').val() === "") {
       $('.empty').show()

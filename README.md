@@ -6,10 +6,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
-!["above 1024px layout"]('https://github.com/JeffGebert/tweeter/blob/master/docs/above%201024px%20layout.png')
-!["below 1024px layout"]('https://github.com/JeffGebert/tweeter/blob/master/docs/below%201024px%20layout.png')
-!["closeup tweet"]('https://github.com/JeffGebert/tweeter/blob/master/docs/closeup%20tweets.png')
-!["error layout"]('https://github.com/JeffGebert/tweeter/blob/master/docs/error%20messages.png%20.png')
+!["above 1024px layout"](https://github.com/JeffGebert/tweeter/blob/master/docs/above%201024px%20layout.png)
+!["below 1024px layout"](https://github.com/JeffGebert/tweeter/blob/master/docs/below%201024px%20layout.png)
+!["closeup tweet"](https://github.com/JeffGebert/tweeter/blob/master/docs/closeup%20tweets.png)
+!["error layout"](https://github.com/JeffGebert/tweeter/blob/master/docs/error%20messages.png%20.png)
 
 ## Dependencies
 

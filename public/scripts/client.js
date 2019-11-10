@@ -11,15 +11,19 @@ const renderTweets = function(tweets) {
   tweets.forEach(element => {
     $(".tweets").prepend(createTweetElement(element));
   });
-// loops through tweets
-// calls createTweetElement for each tweet
-// takes return value and appends it to the tweets container
+  // loops through tweets
+  // calls createTweetElement for each tweet
+  // takes return value and appends it to the tweets container
 
-//do not use appendchild for jquery string.  Also look up proper way to grab container element using jquery.
-}
+  //do not use appendchild for jquery string.  Also look up proper way to grab container element using jquery.
+};
 
+
+//creates tweet container for each tweet in tweets Array.  Uses string literal to access the tweet object which is passed to the function.
+//escape function called is for removing potentially dangerous html tag tweets and returning them as a string.
+//moment function called to convert and display time in human readable format.
 const createTweetElement = function(tweet) {
-let $tweet = `
+  let $tweet = `
 <container>
 <article class = "tweetArticle">
 <header class = "headerTweets">
@@ -39,65 +43,68 @@ let $tweet = `
     </div>
 </footer>
 </article>
-</container>`
-return $tweet;
-}
+</container>`;
+  return $tweet;
+};
 
+//escape function 
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
 
-
+//on document ready hide the empy and limit paragraph texts which are displayed when there is too many characters or an empty string is entered.
 $(document).ready(function() {
-  $('.limit').hide()
-  $('.empty').hide()
+  $('.limit').hide();
+  $('.empty').hide();
  
-
+  //when the tweet button is clicked the following code is run on sumbit.
   const $form = $('#postTweet');
   $form.on("submit", function(event) {
    
     event.preventDefault();
     //we subtract five here because with no string $(this).serialize will return length of 5 with a value of "".
     if (($(this).serialize().length - 5) > 140) {
-      $('.limit').show()
+      $('.limit').show();
     } else if ($('textarea').val() === "") {
-      $('.empty').show()
+      $('.empty').show();
     } else {
-      $('.limit').hide()
-      $('.empty').hide()
-    $.ajax({
-      type: 'POST',
-      url:'http://localhost:8080/Tweets',
-      data:$(this).serialize()
-    })
+      $('.limit').hide();
+      $('.empty').hide();
+      $.ajax({
+        type: 'POST',
+        url:'http://localhost:8080/Tweets',
+        data:$(this).serialize()
+      })
 
-    .done(loadTweets)
-    $form.find("textarea").val("");
-    $form.find(".counter").html(140);
-
-   }
+        .done(loadTweets);
+      $form.find("textarea").val("");
+      $form.find(".counter").html(140);
+      //resets the textarea to the defualt after tweet is clicked.  this way the form is ready for a new tweet with its default values.
+    }
    
 
   });
-
-  let loadTweets = function () {
+//loads tweets by making an ajax request to the corresponding url.  returns data and renderTweets is called.
+  let loadTweets = function() {
     $.ajax({
       type: 'GET',
       url: `http://localhost:8080/tweets/`
     })
-    .done(renderTweets)
-  }
+      .done(renderTweets);
+  };
   loadTweets();
-  const $tweets = $('.new-tweet')
-  const $textarea = $('textarea')
+//code below allows us to scroll the page from the new-tweet to the first tweet on the page.  
+  const $tweets = $('.new-tweet');
+  const $textarea = $('textarea');
   const $img = $('.fas.fa-angle-double-down');
   $img.on("click", function(event) {
     event.preventDefault();
-    $tweets.slideToggle(600, function(){$textarea.focus()})
-
+    $tweets.slideToggle(600, function() {
+      $textarea.focus();
+    });
   });
 });
 

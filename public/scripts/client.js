@@ -11,9 +11,6 @@ const renderTweets = function(tweets) {
   tweets.forEach(element => {
     $(".tweets").prepend(createTweetElement(element));
   });
-  // loops through tweets
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
 
   //do not use appendchild for jquery string.  Also look up proper way to grab container element using jquery.
 };
@@ -35,7 +32,7 @@ const createTweetElement = function(tweet) {
 </header>
 <span class = "spantweet">${escape(tweet.content.text)}</span>
 <footer>
-    <p class = "timeCreated">${moment(tweet.timeCreated).fromNow()}</p>
+    <p class = "timeCreated">${moment(tweet.created_at).fromNow()}</p>
     <div class = "bottomImages">
     <i class="fas fa-flag fa-xs" style="color:#4056A1;"></i>
     <i class="fas fa-retweet fa-xs" style="color:#4056A1;"></i>
@@ -55,10 +52,14 @@ const escape =  function(str) {
 };
 
 
-//on document ready hide the empy and limit paragraph texts which are displayed when there is too many characters or an empty string is entered.
+//on document ready hide the empty and limit paragraph texts which are displayed when there is too many characters or an empty string is entered.
 $(document).ready(function() {
   $('.limit').hide();
   $('.empty').hide();
+  $('.new-tweet').hide();
+
+
+
  
   //when the tweet button is clicked the following code is run on sumbit.
   const $form = $('#postTweet');
